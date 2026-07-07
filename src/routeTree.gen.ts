@@ -13,6 +13,7 @@ import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
 import { Route as SiteWorkRouteImport } from './routes/_site.work'
 import { Route as SiteResumeRouteImport } from './routes/_site.resume'
+import { Route as SiteProjectsSlugRouteImport } from './routes/_site.projects.$slug'
 
 const SiteRoute = SiteRouteImport.update({
   id: '/_site',
@@ -33,16 +34,23 @@ const SiteResumeRoute = SiteResumeRouteImport.update({
   path: '/resume',
   getParentRoute: () => SiteRoute,
 } as any)
+const SiteProjectsSlugRoute = SiteProjectsSlugRouteImport.update({
+  id: '/projects/$slug',
+  path: '/projects/$slug',
+  getParentRoute: () => SiteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
   '/resume': typeof SiteResumeRoute
   '/work': typeof SiteWorkRoute
+  '/projects/$slug': typeof SiteProjectsSlugRoute
 }
 export interface FileRoutesByTo {
   '/resume': typeof SiteResumeRoute
   '/work': typeof SiteWorkRoute
   '/': typeof SiteIndexRoute
+  '/projects/$slug': typeof SiteProjectsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -50,13 +58,20 @@ export interface FileRoutesById {
   '/_site/resume': typeof SiteResumeRoute
   '/_site/work': typeof SiteWorkRoute
   '/_site/': typeof SiteIndexRoute
+  '/_site/projects/$slug': typeof SiteProjectsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/resume' | '/work'
+  fullPaths: '/' | '/resume' | '/work' | '/projects/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/resume' | '/work' | '/'
-  id: '__root__' | '/_site' | '/_site/resume' | '/_site/work' | '/_site/'
+  to: '/resume' | '/work' | '/' | '/projects/$slug'
+  id:
+    | '__root__'
+    | '/_site'
+    | '/_site/resume'
+    | '/_site/work'
+    | '/_site/'
+    | '/_site/projects/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -93,6 +108,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteResumeRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/projects/$slug': {
+      id: '/_site/projects/$slug'
+      path: '/projects/$slug'
+      fullPath: '/projects/$slug'
+      preLoaderRoute: typeof SiteProjectsSlugRouteImport
+      parentRoute: typeof SiteRoute
+    }
   }
 }
 
@@ -100,12 +122,14 @@ interface SiteRouteChildren {
   SiteResumeRoute: typeof SiteResumeRoute
   SiteWorkRoute: typeof SiteWorkRoute
   SiteIndexRoute: typeof SiteIndexRoute
+  SiteProjectsSlugRoute: typeof SiteProjectsSlugRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
   SiteResumeRoute: SiteResumeRoute,
   SiteWorkRoute: SiteWorkRoute,
   SiteIndexRoute: SiteIndexRoute,
+  SiteProjectsSlugRoute: SiteProjectsSlugRoute,
 }
 
 const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren)

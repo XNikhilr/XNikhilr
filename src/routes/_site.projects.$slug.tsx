@@ -105,7 +105,7 @@ function ProjectDetail() {
         <aside className="rounded-xl border border-border bg-card p-5 h-fit">
           <p className="text-xs font-mono text-muted-foreground uppercase">tech stack</p>
           <ul className="mt-3 space-y-2">
-            {p.stack.map((s) => (
+            {p.stack.map((s: string) => (
               <li key={s} className="text-sm font-mono flex items-center gap-2">
                 <span className={`w-1.5 h-1.5 rounded-full ${p.accent === "neon" ? "bg-neon" : p.accent === "magenta" ? "bg-magenta" : "bg-amber"}`} />
                 {s}
