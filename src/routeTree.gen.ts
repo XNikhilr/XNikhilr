@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
 import { Route as SiteWorkRouteImport } from './routes/_site.work'
+import { Route as SiteResumeRouteImport } from './routes/_site.resume'
 
 const SiteRoute = SiteRouteImport.update({
   id: '/_site',
@@ -27,27 +28,35 @@ const SiteWorkRoute = SiteWorkRouteImport.update({
   path: '/work',
   getParentRoute: () => SiteRoute,
 } as any)
+const SiteResumeRoute = SiteResumeRouteImport.update({
+  id: '/resume',
+  path: '/resume',
+  getParentRoute: () => SiteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
+  '/resume': typeof SiteResumeRoute
   '/work': typeof SiteWorkRoute
 }
 export interface FileRoutesByTo {
+  '/resume': typeof SiteResumeRoute
   '/work': typeof SiteWorkRoute
   '/': typeof SiteIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_site': typeof SiteRouteWithChildren
+  '/_site/resume': typeof SiteResumeRoute
   '/_site/work': typeof SiteWorkRoute
   '/_site/': typeof SiteIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/work'
+  fullPaths: '/' | '/resume' | '/work'
   fileRoutesByTo: FileRoutesByTo
-  to: '/work' | '/'
-  id: '__root__' | '/_site' | '/_site/work' | '/_site/'
+  to: '/resume' | '/work' | '/'
+  id: '__root__' | '/_site' | '/_site/resume' | '/_site/work' | '/_site/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,15 +86,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteWorkRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/resume': {
+      id: '/_site/resume'
+      path: '/resume'
+      fullPath: '/resume'
+      preLoaderRoute: typeof SiteResumeRouteImport
+      parentRoute: typeof SiteRoute
+    }
   }
 }
 
 interface SiteRouteChildren {
+  SiteResumeRoute: typeof SiteResumeRoute
   SiteWorkRoute: typeof SiteWorkRoute
   SiteIndexRoute: typeof SiteIndexRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
+  SiteResumeRoute: SiteResumeRoute,
   SiteWorkRoute: SiteWorkRoute,
   SiteIndexRoute: SiteIndexRoute,
 }
