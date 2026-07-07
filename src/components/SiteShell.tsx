@@ -1,7 +1,10 @@
-import { Link, Outlet } from "@tanstack/react-router";
+import { Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { HomeContact } from "./HomeContact";
 
 export function SiteShell() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
   return (
     <div className="min-h-screen flex flex-col">
       <Nav />
@@ -9,6 +12,7 @@ export function SiteShell() {
         <Outlet />
       </main>
       <Footer />
+      {isHome ? <HomeContact /> : null}
     </div>
   );
 }
