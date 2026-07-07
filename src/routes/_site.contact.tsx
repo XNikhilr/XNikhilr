@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Copy, Check, Mail, Send, Github, Linkedin, Twitter, Newspaper } from "lucide-react";
+import { Copy, Check, Mail, Send } from "lucide-react";
+import { SocialIcons } from "@/components/SocialIcons";
+import { socials } from "@/lib/socials";
 
 export const Route = createFileRoute("/_site/contact")({
   head: () => ({
@@ -9,7 +11,11 @@ export const Route = createFileRoute("/_site/contact")({
       { name: "description", content: "Get in touch with Nikhil Jha — email, socials, or send a direct message." },
       { property: "og:title", content: "Contact — Nikhil Jha" },
       { property: "og:description", content: "Reach out for collaborations, journalism, or Lovable builds." },
+      { property: "og:url", content: "/contact" },
+      { name: "twitter:title", content: "Contact — Nikhil Jha" },
+      { name: "twitter:description", content: "Reach out for collaborations, journalism, or Lovable builds." },
     ],
+    links: [{ rel: "canonical", href: "/contact" }],
   }),
   component: Contact,
 });
@@ -17,13 +23,6 @@ export const Route = createFileRoute("/_site/contact")({
 const emails = [
   { addr: "emailnik@mahobainsight.in", label: "work" },
   { addr: "music.nikhilr@gmail.com", label: "personal" },
-];
-
-const socials = [
-  { label: "GitHub", href: "https://github.com/DeveloNikhil", handle: "DeveloNikhil", Icon: Github },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/xnikhilr", handle: "xnikhilr", Icon: Linkedin },
-  { label: "X / Twitter", href: "https://x.com/Nikhill_0", handle: "@Nikhill_0", Icon: Twitter },
-  { label: "Mahoba Insight", href: "https://mahobainsight.in", handle: "mahobainsight.in", Icon: Newspaper },
 ];
 
 function Contact() {
