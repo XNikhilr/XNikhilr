@@ -16,6 +16,47 @@ export const Route = createFileRoute("/_site/contact")({
       { name: "twitter:description", content: "Reach out for collaborations, journalism, or Lovable builds." },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact — Nikhil Jha",
+          url: "/contact",
+          mainEntity: {
+            "@type": "Person",
+            name: "Nikhil Jha",
+            alternateName: "XNikhilr",
+            email: [
+              "mailto:emailnik@mahobainsight.in",
+              "mailto:music.nikhilr@gmail.com",
+            ],
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Mahoba",
+              addressRegion: "Uttar Pradesh",
+              addressCountry: "IN",
+            },
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                contactType: "work",
+                email: "emailnik@mahobainsight.in",
+                areaServed: "IN",
+                availableLanguage: ["en", "hi"],
+              },
+            ],
+            sameAs: [
+              "https://github.com/XNikhilr",
+              "https://www.linkedin.com/in/xnikhilr",
+              "https://x.com/Nikhill_0",
+              "https://mahobainsight.in",
+            ],
+          },
+        }),
+      },
+    ],
   }),
   component: Contact,
 });
