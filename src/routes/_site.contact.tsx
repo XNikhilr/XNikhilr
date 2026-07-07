@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Copy, Check, Mail, Send, Github, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Copy, Check, Mail, Send, Github, Linkedin, Twitter, Newspaper } from "lucide-react";
 
 export const Route = createFileRoute("/_site/contact")({
   head: () => ({
@@ -20,10 +20,10 @@ const emails = [
 ];
 
 const socials = [
-  { label: "GitHub", href: "https://github.com/", Icon: Github },
-  { label: "LinkedIn", href: "https://linkedin.com/", Icon: Linkedin },
-  { label: "Twitter / X", href: "https://twitter.com/", Icon: Twitter },
-  { label: "Instagram", href: "https://instagram.com/", Icon: Instagram },
+  { label: "GitHub", href: "https://github.com/DeveloNikhil", handle: "DeveloNikhil", Icon: Github },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/xnikhilr", handle: "xnikhilr", Icon: Linkedin },
+  { label: "X / Twitter", href: "https://x.com/Nikhill_0", handle: "@Nikhill_0", Icon: Twitter },
+  { label: "Mahoba Insight", href: "https://mahobainsight.in", handle: "mahobainsight.in", Icon: Newspaper },
 ];
 
 function Contact() {
@@ -47,7 +47,7 @@ function Contact() {
 
           <h2 className="font-mono text-xs uppercase text-muted-foreground pt-6">socials</h2>
           <div className="grid grid-cols-2 gap-2">
-            {socials.map(({ label, href, Icon }) => (
+            {socials.map(({ label, href, handle, Icon }) => (
               <a
                 key={label}
                 href={href}
@@ -56,7 +56,10 @@ function Contact() {
                 className="flex items-center gap-3 px-3 py-2.5 rounded-md border border-border hover:border-neon hover:text-neon transition-colors group"
               >
                 <Icon className="w-4 h-4" />
-                <span className="text-sm font-mono">{label}</span>
+                <span className="min-w-0">
+                  <span className="block text-sm font-mono">{label}</span>
+                  <span className="block text-[10px] text-muted-foreground truncate">{handle}</span>
+                </span>
                 <span className="ml-auto text-xs text-muted-foreground group-hover:text-neon">↗</span>
               </a>
             ))}
