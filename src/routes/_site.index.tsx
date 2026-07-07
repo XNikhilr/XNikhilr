@@ -5,6 +5,55 @@ import { socials } from "@/lib/socials";
 
 
 export const Route = createFileRoute("/_site/")({
+  head: () => ({
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Nikhil Jha",
+          alternateName: "XNikhilr",
+          jobTitle: "Developer & Founder",
+          description:
+            "Self-taught developer and founder building regional media and community platforms for Bharat from Mahoba.",
+          url: "/",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Mahoba",
+            addressRegion: "Uttar Pradesh",
+            addressCountry: "IN",
+          },
+          email: "mailto:emailnik@mahobainsight.in",
+          sameAs: [
+            "https://github.com/XNikhilr",
+            "https://www.linkedin.com/in/xnikhilr",
+            "https://x.com/Nikhill_0",
+            "https://mahobainsight.in",
+          ],
+          knowsAbout: [
+            "React",
+            "TypeScript",
+            "WordPress",
+            "Regional Media",
+            "Editorial Design",
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Nikhil Jha",
+          url: "/",
+          inLanguage: "en",
+          author: { "@type": "Person", name: "Nikhil Jha" },
+          publisher: { "@type": "Person", name: "Nikhil Jha" },
+        }),
+      },
+    ],
+  }),
   component: Home,
 });
 
@@ -63,10 +112,22 @@ function Home() {
         <p className="text-neon text-sm mb-3 font-mono">// hello_world.ts</p>
         <h1 className="font-sans font-extrabold tracking-tight text-5xl sm:text-7xl md:text-8xl leading-[0.95]">
           <span className="text-muted-foreground">$ </span>
-          <span className="text-glow">Nikhil</span>
+          <span
+            className="glitch text-glow"
+            data-text="Nikhil"
+            aria-label="Nikhil"
+          >
+            Nikhil
+          </span>
           <br />
-          <span className="text-neon text-glow">Jha</span>
-          <span className="text-magenta">.</span>
+          <span
+            className="glitch text-neon text-glow"
+            data-text="Jha"
+            aria-label="Jha"
+          >
+            Jha
+          </span>
+          <span className="text-magenta name-caret">_</span>
         </h1>
 
         <div className="mt-8 text-lg sm:text-2xl font-mono">
