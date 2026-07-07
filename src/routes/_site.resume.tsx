@@ -114,14 +114,31 @@ function Resume() {
           </Section>
 
           <Section title="## education">
-            <Row k="Self-taught" v="Web, design, product — since 2020" />
+            <div className="space-y-3 font-sans">
+              <div>
+                <p className="text-foreground font-semibold">B.A. in Political Science and Economics</p>
+                <p className="text-muted-foreground text-sm">Delhi University, School of Open Distance Learning, New Delhi — undergoing</p>
+              </div>
+              <div>
+                <p className="text-foreground font-semibold">B.Com</p>
+                <p className="text-muted-foreground text-sm">Maharaja Chhatrasal Bundelkhand University, Chhatarpur</p>
+              </div>
+              <div>
+                <p className="text-foreground font-semibold">School</p>
+                <p className="text-muted-foreground text-sm">St. Joseph's Eng. Med. Mahoba</p>
+              </div>
+            </div>
           </Section>
 
           <Section title="## contact" last>
             <p className="text-muted-foreground font-sans">
               For work, collaborations, or a chai in Mahoba —{" "}
-              <a href="mailto:hello@nikhiljha.in" className="text-neon">
-                hello@nikhiljha.in
+              <a href="mailto:emailnik@mahobainsight.in" className="text-neon hover:underline">
+                emailnik@mahobainsight.in
+              </a>{" "}
+              /{" "}
+              <a href="mailto:music.nikhilr@gmail.com" className="text-neon hover:underline">
+                music.nikhilr@gmail.com
               </a>
             </p>
           </Section>
