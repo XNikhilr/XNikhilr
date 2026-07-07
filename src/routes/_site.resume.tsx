@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Download, Printer } from "lucide-react";
+import { Download } from "lucide-react";
 
 export const Route = createFileRoute("/_site/resume")({
   head: () => ({
