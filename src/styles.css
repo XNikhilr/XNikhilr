@@ -92,3 +92,11 @@
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100%); }
 }
+
+@media print {
+  header, footer, .print\:hidden { display: none !important; }
+  body { background: white !important; color: black !important; }
+  .bg-card, .bg-secondary\/40 { background: white !important; }
+  * { color: black !important; box-shadow: none !important; }
+  .border-border { border-color: #ddd !important; }
+}
