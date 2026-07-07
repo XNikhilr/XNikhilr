@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Twitter, Instagram, Mail, Youtube } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Newspaper } from "lucide-react";
 
 
 export const Route = createFileRoute("/_site/")({
@@ -143,7 +143,7 @@ function Home() {
         <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
           // socials --list
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           {socials.map((s) => (
             <a
               key={s.label}
@@ -181,10 +181,9 @@ function TerminalCard({ title, children }: { title: string; children: React.Reac
 }
 
 const socials = [
-  { label: "GitHub", handle: "@nikhiljha", href: "https://github.com", icon: Github },
-  { label: "Twitter / X", handle: "@nikhiljha", href: "https://twitter.com", icon: Twitter },
-  { label: "LinkedIn", handle: "in/nikhiljha", href: "https://linkedin.com", icon: Linkedin },
-  { label: "Instagram", handle: "@nikhiljha", href: "https://instagram.com", icon: Instagram },
-  { label: "YouTube", handle: "@nikhiljha", href: "https://youtube.com", icon: Youtube },
-  { label: "Email", handle: "hello@nikhiljha.in", href: "mailto:hello@nikhiljha.in", icon: Mail },
+  { label: "GitHub", handle: "DeveloNikhil", href: "https://github.com/DeveloNikhil", icon: Github },
+  { label: "LinkedIn", handle: "xnikhilr", href: "https://www.linkedin.com/in/xnikhilr", icon: Linkedin },
+  { label: "X / Twitter", handle: "@Nikhill_0", href: "https://x.com/Nikhill_0", icon: Twitter },
+  { label: "Mahoba Insight", handle: "mahobainsight.in", href: "https://mahobainsight.in", icon: Newspaper },
+  { label: "Email", handle: "emailnik@mahobainsight.in", href: "mailto:emailnik@mahobainsight.in", icon: Mail },
 ];
