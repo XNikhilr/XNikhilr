@@ -50,7 +50,9 @@ function Resume() {
               Developer · Founder · Publisher · Mahoba, India
             </p>
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
-              <span>hello@nikhiljha.in</span>
+              <a href="mailto:emailnik@mahobainsight.in" className="hover:text-neon transition-colors">emailnik@mahobainsight.in</a>
+              <span>·</span>
+              <a href="mailto:music.nikhilr@gmail.com" className="hover:text-neon transition-colors">music.nikhilr@gmail.com</a>
               <span>·</span>
               <span>mahobainsight.in</span>
               <span>·</span>
