@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { Github, Linkedin, Twitter, Instagram, Mail, Youtube } from "lucide-react";
+
 
 export const Route = createFileRoute("/_site/")({
   component: Home,
@@ -139,20 +141,22 @@ function Home() {
 
       <section className="relative mx-auto max-w-6xl px-4 sm:px-6 py-16">
         <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
-          // socials
+          // socials --list
         </h2>
-        <div className="flex flex-wrap gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {socials.map((s) => (
             <a
               key={s.label}
               href={s.href}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-3 px-4 py-3 rounded-md border border-border hover:border-neon transition-colors"
+              aria-label={s.label}
+              className="group relative flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-border bg-card hover:border-neon hover:-translate-y-0.5 hover:glow-neon transition-all"
             >
-              <span className="text-neon text-sm">{s.handle}</span>
-              <span className="text-xs text-muted-foreground group-hover:text-foreground">
-                {s.label} ↗
+              <s.icon className="w-6 h-6 text-muted-foreground group-hover:text-neon transition-colors" />
+              <span className="text-xs font-mono text-foreground">{s.label}</span>
+              <span className="text-[10px] text-muted-foreground truncate max-w-full">
+                {s.handle}
               </span>
             </a>
           ))}
@@ -177,9 +181,10 @@ function TerminalCard({ title, children }: { title: string; children: React.Reac
 }
 
 const socials = [
-  { label: "GitHub", handle: "@nikhiljha", href: "https://github.com" },
-  { label: "Twitter / X", handle: "@nikhiljha", href: "https://twitter.com" },
-  { label: "LinkedIn", handle: "in/nikhiljha", href: "https://linkedin.com" },
-  { label: "Instagram", handle: "@nikhiljha", href: "https://instagram.com" },
-  { label: "Email", handle: "hello@nikhiljha.in", href: "mailto:hello@nikhiljha.in" },
+  { label: "GitHub", handle: "@nikhiljha", href: "https://github.com", icon: Github },
+  { label: "Twitter / X", handle: "@nikhiljha", href: "https://twitter.com", icon: Twitter },
+  { label: "LinkedIn", handle: "in/nikhiljha", href: "https://linkedin.com", icon: Linkedin },
+  { label: "Instagram", handle: "@nikhiljha", href: "https://instagram.com", icon: Instagram },
+  { label: "YouTube", handle: "@nikhiljha", href: "https://youtube.com", icon: Youtube },
+  { label: "Email", handle: "hello@nikhiljha.in", href: "mailto:hello@nikhiljha.in", icon: Mail },
 ];

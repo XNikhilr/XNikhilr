@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Download } from "lucide-react";
 
 export const Route = createFileRoute("/_site/resume")({
   head: () => ({
@@ -15,6 +16,22 @@ export const Route = createFileRoute("/_site/resume")({
 function Resume() {
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6 pt-16 pb-24">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3 print:hidden">
+        <div>
+          <p className="text-neon text-sm font-mono">// resume.md</p>
+          <h1 className="font-sans text-3xl sm:text-4xl font-extrabold tracking-tight">
+            My résumé<span className="text-neon">.</span>
+          </h1>
+        </div>
+        <button
+          onClick={() => window.print()}
+          className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-md bg-neon text-primary-foreground font-semibold text-sm hover:glow-neon transition-all"
+        >
+          <Download className="w-4 h-4" />
+          <span>download_pdf.sh</span>
+        </button>
+      </div>
+
       <div className="rounded-xl border border-border bg-card overflow-hidden">
         <div className="flex items-center gap-2 px-4 py-2 border-b border-border bg-secondary/40 font-mono text-xs">
           <span className="w-2.5 h-2.5 rounded-full bg-destructive/70" />

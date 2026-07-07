@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import biLogo from "@/assets/bundelkhand-insight-logo.jpg.asset.json";
+
 
 export const Route = createFileRoute("/_site/work")({
   head: () => ({
@@ -36,7 +38,8 @@ const projects: Project[] = [
   {
     name: "Bundelkhand Insight",
     tagline: "The regional lens for the whole Bundelkhand.",
-    url: "https://www.bundelkhandinsight.in",
+    url: "https://bid.mahobainsight.in",
+    logo: biLogo.url,
     about:
       "A regional media platform expanding the Insight model across Bundelkhand — Mahoba, Hamirpur, Banda, Chitrakoot, Jhansi, Lalitpur, Jalaun, and beyond. Reporting on water, farming, elections and heritage.",
     stack: ["WordPress", "React widgets", "Multi-district CMS"],
@@ -45,7 +48,7 @@ const projects: Project[] = [
   {
     name: "Urmila Janki",
     tagline: "A digital home for devotion and dharmic literature.",
-    url: "https://www.urmilajanki.in",
+    url: "https://uj.mahobainsight.in",
     about:
       "A cultural & devotional publishing platform — bringing bhakti, folk traditions, and stories of Sita and Urmila to a modern reader. Long-form reading, curated audio, and a quiet, respectful design.",
     stack: ["Next.js", "MDX", "Sanskrit typography"],
