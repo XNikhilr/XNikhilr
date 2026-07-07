@@ -18,6 +18,7 @@ function Nav() {
     { to: "/", label: "~/home" },
     { to: "/work", label: "~/work" },
     { to: "/resume", label: "~/resume" },
+    { to: "/contact", label: "~/contact" },
   ] as const;
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
