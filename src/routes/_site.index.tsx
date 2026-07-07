@@ -147,42 +147,7 @@ function Home() {
         <SocialIcons items={socials} variant="grid" />
       </section>
 
-      <section className="relative mx-auto max-w-6xl px-4 sm:px-6 py-16 pb-24">
-        <p className="font-mono text-neon text-sm">// contact.init()</p>
-        <h2 className="mt-2 font-sans font-extrabold tracking-tight text-3xl sm:text-5xl">
-          Let's talk<span className="text-neon">.</span>
-        </h2>
-        <p className="mt-4 max-w-2xl text-muted-foreground">
-          Journalism tip-offs, collaborations, or an app you'd like vibe-coded — pick a channel below.
-        </p>
-
-        <div className="mt-10 grid md:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <h3 className="font-mono text-xs uppercase text-muted-foreground">email</h3>
-            {emails.map((e) => (
-              <EmailRow key={e.addr} email={e.addr} label={e.label} />
-            ))}
-
-            <h3 className="font-mono text-xs uppercase text-muted-foreground pt-6">socials</h3>
-            <SocialIcons items={socials} variant="row" />
-          </div>
-
-          <div>
-            <h3 className="font-mono text-xs uppercase text-muted-foreground">send a message</h3>
-            <ContactForm />
-          </div>
-        </div>
-
-        <div className="mt-10 text-center">
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-neon transition-colors font-mono"
-          >
-            <span>open full contact page</span>
-            <span>→</span>
-          </Link>
-        </div>
-      </section>
+      {/* Contact section is rendered by SiteShell below the footer on the home route. */}
     </div>
   );
 }
