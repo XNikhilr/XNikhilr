@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
+import { Route as SiteWorkRouteImport } from './routes/_site.work'
 
 const SiteRoute = SiteRouteImport.update({
   id: '/_site',
@@ -21,24 +22,32 @@ const SiteIndexRoute = SiteIndexRouteImport.update({
   path: '/',
   getParentRoute: () => SiteRoute,
 } as any)
+const SiteWorkRoute = SiteWorkRouteImport.update({
+  id: '/work',
+  path: '/work',
+  getParentRoute: () => SiteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
+  '/work': typeof SiteWorkRoute
 }
 export interface FileRoutesByTo {
+  '/work': typeof SiteWorkRoute
   '/': typeof SiteIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_site': typeof SiteRouteWithChildren
+  '/_site/work': typeof SiteWorkRoute
   '/_site/': typeof SiteIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/work'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/_site' | '/_site/'
+  to: '/work' | '/'
+  id: '__root__' | '/_site' | '/_site/work' | '/_site/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -61,14 +70,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteIndexRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/work': {
+      id: '/_site/work'
+      path: '/work'
+      fullPath: '/work'
+      preLoaderRoute: typeof SiteWorkRouteImport
+      parentRoute: typeof SiteRoute
+    }
   }
 }
 
 interface SiteRouteChildren {
+  SiteWorkRoute: typeof SiteWorkRoute
   SiteIndexRoute: typeof SiteIndexRoute
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
+  SiteWorkRoute: SiteWorkRoute,
   SiteIndexRoute: SiteIndexRoute,
 }
 
