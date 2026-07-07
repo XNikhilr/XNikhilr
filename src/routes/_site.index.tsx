@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Mail, Copy, Check, Send } from "lucide-react";
 import { SocialIcons } from "@/components/SocialIcons";
 import { socials } from "@/lib/socials";
 
