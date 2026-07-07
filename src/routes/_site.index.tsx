@@ -165,24 +165,7 @@ function Home() {
             ))}
 
             <h3 className="font-mono text-xs uppercase text-muted-foreground pt-6">socials</h3>
-            <div className="grid grid-cols-2 gap-2">
-              {socials.map(({ label, href, handle, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-md border border-border hover:border-neon hover:text-neon transition-colors group"
-                >
-                  <Icon className="w-4 h-4" />
-                  <span className="min-w-0">
-                    <span className="block text-sm font-mono">{label}</span>
-                    <span className="block text-[10px] text-muted-foreground truncate">{handle}</span>
-                  </span>
-                  <span className="ml-auto text-xs text-muted-foreground group-hover:text-neon">↗</span>
-                </a>
-              ))}
-            </div>
+            <SocialIcons items={socials} variant="row" />
           </div>
 
           <div>
@@ -222,14 +205,6 @@ function TerminalCard({ title, children }: { title: string; children: React.Reac
 const emails = [
   { addr: "emailnik@mahobainsight.in", label: "work" },
   { addr: "music.nikhilr@gmail.com", label: "personal" },
-];
-
-const socials = [
-  { label: "GitHub", handle: "DeveloNikhil", href: "https://github.com/DeveloNikhil", icon: Github },
-  { label: "LinkedIn", handle: "xnikhilr", href: "https://www.linkedin.com/in/xnikhilr", icon: Linkedin },
-  { label: "X / Twitter", handle: "@Nikhill_0", href: "https://x.com/Nikhill_0", icon: Twitter },
-  { label: "Mahoba Insight", handle: "mahobainsight.in", href: "https://mahobainsight.in", icon: Newspaper },
-  { label: "Email", handle: "emailnik@mahobainsight.in", href: "mailto:emailnik@mahobainsight.in", icon: Mail },
 ];
 
 function EmailRow({ email, label }: { email: string; label: string }) {
