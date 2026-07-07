@@ -46,13 +46,22 @@ const projects: Project[] = [
     accent: "magenta",
   },
   {
+    name: "Urmila Janki",
+    tagline: "A digital home for devotion and dharmic literature.",
+    url: "https://uj.mahobainsight.in",
+    about:
+      "A cultural & devotional publishing platform — bringing bhakti, folk traditions, and stories of Sita and Urmila to a modern reader. Long-form reading, curated audio, and a quiet, respectful design.",
+    stack: ["Next.js", "MDX", "Sanskrit typography"],
+    accent: "amber",
+  },
+  {
     name: "LexPress AI",
     tagline: "AI workspace built for journalism and law.",
     url: "https://lexpressai-forge.lovable.app",
     about:
       "A production-ready SaaS experiment for legal research and editorial workflows — AI-assisted drafting, document analysis, and a clean workspace UI built on the Lovable stack.",
     stack: ["TanStack Start", "AI Gateway", "Lovable"],
-    accent: "amber",
+    accent: "neon",
   },
   {
     name: "PNR Status Express",
@@ -61,7 +70,7 @@ const projects: Project[] = [
     about:
       "A lightweight Lovable-built app that fetches live PNR status from IRCTC and presents it without clutter. Simple input, fast result, no noise.",
     stack: ["TanStack Start", "IRCTC API", "Lovable"],
-    accent: "neon",
+    accent: "magenta",
   },
   {
     name: "MetroFlow Narova",
@@ -70,7 +79,7 @@ const projects: Project[] = [
     about:
       "An experimental metro/route navigation interface built to explore transit UX, real-time directions, and a modern mobile-first flow.",
     stack: ["TanStack Start", "Lovable", "Transit UX"],
-    accent: "magenta",
+    accent: "amber",
   },
 ];
 
