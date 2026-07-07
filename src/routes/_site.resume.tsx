@@ -15,6 +15,50 @@ export const Route = createFileRoute("/_site/resume")({
       { name: "twitter:description", content: "Résumé of Nikhil Jha — developer, founder, publisher based in Mahoba, India." },
     ],
     links: [{ rel: "canonical", href: "/resume" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Nikhil Jha",
+          alternateName: "XNikhilr",
+          jobTitle: "Developer & Founder",
+          description:
+            "Developer, founder and publisher based in Mahoba. Founder of Mahoba Insight, Bundelkhand Insight, and Urmila Janki.",
+          url: "/resume",
+          email: "mailto:emailnik@mahobainsight.in",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Mahoba",
+            addressRegion: "Uttar Pradesh",
+            addressCountry: "IN",
+          },
+          alumniOf: [
+            {
+              "@type": "CollegeOrUniversity",
+              name: "Delhi University, School of Open Distance Learning",
+            },
+            {
+              "@type": "CollegeOrUniversity",
+              name: "Maharaja Chhatrasal Bundelkhand University, Chhatarpur",
+            },
+            { "@type": "HighSchool", name: "St. Joseph's Eng. Med. Mahoba" },
+          ],
+          worksFor: [
+            { "@type": "Organization", name: "Mahoba Insight", url: "https://mahobainsight.in" },
+            { "@type": "Organization", name: "Bundelkhand Insight", url: "https://bid.mahobainsight.in" },
+            { "@type": "Organization", name: "Urmila Janki", url: "https://uj.mahobainsight.in" },
+          ],
+          knowsAbout: ["React", "TypeScript", "WordPress", "Node.js", "Tailwind CSS"],
+          sameAs: [
+            "https://github.com/XNikhilr",
+            "https://www.linkedin.com/in/xnikhilr",
+            "https://x.com/Nikhill_0",
+          ],
+        }),
+      },
+    ],
   }),
   component: Resume,
 });
