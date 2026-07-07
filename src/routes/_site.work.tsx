@@ -6,9 +6,9 @@ export const Route = createFileRoute("/_site/work")({
   head: () => ({
     meta: [
       { title: "Work — Nikhil Jha" },
-      { name: "description", content: "Projects by Nikhil Jha: Mahoba Insight, Bundelkhand Insight, and Urmila Janki." },
+      { name: "description", content: "Projects by Nikhil Jha: Mahoba Insight, Bundelkhand Insight, Urmila Janki, and Lovable experiments." },
       { property: "og:title", content: "Work — Nikhil Jha" },
-      { property: "og:description", content: "Regional media and community platforms." },
+      { property: "og:description", content: "Regional media, community platforms, and Lovable-built experiments." },
     ],
   }),
   component: Work,
