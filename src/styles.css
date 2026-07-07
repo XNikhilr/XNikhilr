@@ -159,15 +159,20 @@
   .glitch::after { animation: none; }
 }
 
-/* Blinking underscore next to the name — terminal caret vibe */
+/* Blinking terminal caret next to the name */
 @keyframes caret-pulse {
-  0%, 45%   { opacity: 1;   text-shadow: 0 0 12px oklch(0.75 0.22 330 / 0.9); }
-  50%, 100% { opacity: 0.15; text-shadow: none; }
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 .name-caret {
   display: inline-block;
-  margin-left: 0.05em;
-  animation: caret-pulse 1.1s steps(1, end) infinite;
+  width: 0.55em;
+  height: 0.85em;
+  margin-left: 0.08em;
+  vertical-align: -0.05em;
+  background: var(--color-magenta);
+  box-shadow: 0 0 14px oklch(0.75 0.22 330 / 0.75);
+  animation: caret-pulse 1.05s steps(1, end) infinite;
 }
 
 @media print {

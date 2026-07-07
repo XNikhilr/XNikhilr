@@ -10,9 +10,9 @@ export function SiteShell() {
       <Nav />
       <main className="flex-1">
         <Outlet />
+        {isHome ? <HomeContact /> : null}
       </main>
       <Footer />
-      {isHome ? <HomeContact /> : null}
     </div>
   );
 }

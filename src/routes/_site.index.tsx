@@ -127,7 +127,7 @@ function Home() {
           >
             Jha
           </span>
-          <span className="text-magenta name-caret">_</span>
+          <span className="name-caret" aria-hidden="true" />
         </h1>
 
         <div className="mt-8 text-lg sm:text-2xl font-mono">
