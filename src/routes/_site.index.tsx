@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Twitter, Mail, Newspaper } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Newspaper, Copy, Check, Send } from "lucide-react";
 
 
 export const Route = createFileRoute("/_site/")({
