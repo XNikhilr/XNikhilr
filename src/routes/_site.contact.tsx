@@ -45,24 +45,7 @@ function Contact() {
           ))}
 
           <h2 className="font-mono text-xs uppercase text-muted-foreground pt-6">socials</h2>
-          <div className="grid grid-cols-2 gap-2">
-            {socials.map(({ label, href, handle, Icon }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 px-3 py-2.5 rounded-md border border-border hover:border-neon hover:text-neon transition-colors group"
-              >
-                <Icon className="w-4 h-4" />
-                <span className="min-w-0">
-                  <span className="block text-sm font-mono">{label}</span>
-                  <span className="block text-[10px] text-muted-foreground truncate">{handle}</span>
-                </span>
-                <span className="ml-auto text-xs text-muted-foreground group-hover:text-neon">↗</span>
-              </a>
-            ))}
-          </div>
+          <SocialIcons items={socials} variant="row" />
         </section>
 
         <section>
