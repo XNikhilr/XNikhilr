@@ -13,6 +13,7 @@ import { Route as SiteRouteImport } from './routes/_site'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
 import { Route as SiteWorkRouteImport } from './routes/_site.work'
 import { Route as SiteResumeRouteImport } from './routes/_site.resume'
+import { Route as SiteContactRouteImport } from './routes/_site.contact'
 import { Route as SiteProjectsSlugRouteImport } from './routes/_site.projects.$slug'
 
 const SiteRoute = SiteRouteImport.update({
@@ -34,6 +35,11 @@ const SiteResumeRoute = SiteResumeRouteImport.update({
   path: '/resume',
   getParentRoute: () => SiteRoute,
 } as any)
+const SiteContactRoute = SiteContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => SiteRoute,
+} as any)
 const SiteProjectsSlugRoute = SiteProjectsSlugRouteImport.update({
   id: '/projects/$slug',
   path: '/projects/$slug',
@@ -42,11 +48,13 @@ const SiteProjectsSlugRoute = SiteProjectsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
+  '/contact': typeof SiteContactRoute
   '/resume': typeof SiteResumeRoute
   '/work': typeof SiteWorkRoute
   '/projects/$slug': typeof SiteProjectsSlugRoute
 }
 export interface FileRoutesByTo {
+  '/contact': typeof SiteContactRoute
   '/resume': typeof SiteResumeRoute
   '/work': typeof SiteWorkRoute
   '/': typeof SiteIndexRoute
@@ -55,6 +63,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_site': typeof SiteRouteWithChildren
+  '/_site/contact': typeof SiteContactRoute
   '/_site/resume': typeof SiteResumeRoute
   '/_site/work': typeof SiteWorkRoute
   '/_site/': typeof SiteIndexRoute
@@ -62,12 +71,13 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/resume' | '/work' | '/projects/$slug'
+  fullPaths: '/' | '/contact' | '/resume' | '/work' | '/projects/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/resume' | '/work' | '/' | '/projects/$slug'
+  to: '/contact' | '/resume' | '/work' | '/' | '/projects/$slug'
   id:
     | '__root__'
     | '/_site'
+    | '/_site/contact'
     | '/_site/resume'
     | '/_site/work'
     | '/_site/'
@@ -108,6 +118,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteResumeRouteImport
       parentRoute: typeof SiteRoute
     }
+    '/_site/contact': {
+      id: '/_site/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof SiteContactRouteImport
+      parentRoute: typeof SiteRoute
+    }
     '/_site/projects/$slug': {
       id: '/_site/projects/$slug'
       path: '/projects/$slug'
@@ -119,6 +136,7 @@ declare module '@tanstack/react-router' {
 }
 
 interface SiteRouteChildren {
+  SiteContactRoute: typeof SiteContactRoute
   SiteResumeRoute: typeof SiteResumeRoute
   SiteWorkRoute: typeof SiteWorkRoute
   SiteIndexRoute: typeof SiteIndexRoute
@@ -126,6 +144,7 @@ interface SiteRouteChildren {
 }
 
 const SiteRouteChildren: SiteRouteChildren = {
+  SiteContactRoute: SiteContactRoute,
   SiteResumeRoute: SiteResumeRoute,
   SiteWorkRoute: SiteWorkRoute,
   SiteIndexRoute: SiteIndexRoute,
