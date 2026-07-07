@@ -1,14 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Download } from "lucide-react";
+import { SocialIcons } from "@/components/SocialIcons";
+import { socials } from "@/lib/socials";
 
 export const Route = createFileRoute("/_site/resume")({
   head: () => ({
     meta: [
       { title: "Resume — Nikhil Jha" },
-      { name: "description", content: "Short resume of Nikhil Jha — developer, founder based in Mahoba, India." },
+      { name: "description", content: "Résumé of Nikhil Jha — self-taught developer and founder based in Mahoba. Experience across React, TypeScript, WordPress, and regional media." },
       { property: "og:title", content: "Resume — Nikhil Jha" },
-      { property: "og:description", content: "Short resume of Nikhil Jha." },
+      { property: "og:description", content: "Résumé of Nikhil Jha — developer, founder, publisher based in Mahoba, India." },
+      { property: "og:url", content: "/resume" },
+      { name: "twitter:title", content: "Resume — Nikhil Jha" },
+      { name: "twitter:description", content: "Résumé of Nikhil Jha — developer, founder, publisher based in Mahoba, India." },
     ],
+    links: [{ rel: "canonical", href: "/resume" }],
   }),
   component: Resume,
 });
