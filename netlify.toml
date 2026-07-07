@@ -1,0 +1,20 @@
+# Netlify deploy config for TanStack Start (Nitro `netlify` preset).
+#
+# Nitro auto-detects Netlify from the `NETLIFY=true` env var Netlify sets in CI
+# and emits a Netlify Function + static assets. `vite.config.ts` also honors
+# `NITRO_PRESET` if you want to override.
+#
+# No adapter package to install — Nitro ships the `netlify` preset out of the box.
+
+[build]
+  command = "bun run build"
+  publish = "dist/client"
+
+[build.environment]
+  NITRO_PRESET = "netlify"
+  # Bun is available on Netlify's default image; pin Node for any tools that need it.
+  NODE_VERSION = "20"
+
+# Nitro's `netlify` preset writes the server function to `.netlify/functions-internal/server`
+# and its own `_redirects` catch-all under `dist/client`, so no manual `[[redirects]]`
+# block is needed here.
