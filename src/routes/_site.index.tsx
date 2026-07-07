@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Twitter, Mail, Newspaper, Copy, Check, Send } from "lucide-react";
+import { Mail, Copy, Check, Send } from "lucide-react";
+import { SocialIcons } from "@/components/SocialIcons";
+import { socials } from "@/lib/socials";
 
 
 export const Route = createFileRoute("/_site/")({
@@ -143,24 +145,7 @@ function Home() {
         <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
           // socials --list
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-          {socials.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={s.label}
-              className="group relative flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-border bg-card hover:border-neon hover:-translate-y-0.5 hover:glow-neon transition-all"
-            >
-              <s.icon className="w-6 h-6 text-muted-foreground group-hover:text-neon transition-colors" />
-              <span className="text-xs font-mono text-foreground">{s.label}</span>
-              <span className="text-[10px] text-muted-foreground truncate max-w-full">
-                {s.handle}
-              </span>
-            </a>
-          ))}
-        </div>
+        <SocialIcons items={socials} variant="grid" />
       </section>
 
       <section className="relative mx-auto max-w-6xl px-4 sm:px-6 py-16 pb-24">
@@ -180,24 +165,7 @@ function Home() {
             ))}
 
             <h3 className="font-mono text-xs uppercase text-muted-foreground pt-6">socials</h3>
-            <div className="grid grid-cols-2 gap-2">
-              {socials.map(({ label, href, handle, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-md border border-border hover:border-neon hover:text-neon transition-colors group"
-                >
-                  <Icon className="w-4 h-4" />
-                  <span className="min-w-0">
-                    <span className="block text-sm font-mono">{label}</span>
-                    <span className="block text-[10px] text-muted-foreground truncate">{handle}</span>
-                  </span>
-                  <span className="ml-auto text-xs text-muted-foreground group-hover:text-neon">↗</span>
-                </a>
-              ))}
-            </div>
+            <SocialIcons items={socials} variant="row" />
           </div>
 
           <div>
@@ -237,14 +205,6 @@ function TerminalCard({ title, children }: { title: string; children: React.Reac
 const emails = [
   { addr: "emailnik@mahobainsight.in", label: "work" },
   { addr: "music.nikhilr@gmail.com", label: "personal" },
-];
-
-const socials = [
-  { label: "GitHub", handle: "DeveloNikhil", href: "https://github.com/DeveloNikhil", icon: Github },
-  { label: "LinkedIn", handle: "xnikhilr", href: "https://www.linkedin.com/in/xnikhilr", icon: Linkedin },
-  { label: "X / Twitter", handle: "@Nikhill_0", href: "https://x.com/Nikhill_0", icon: Twitter },
-  { label: "Mahoba Insight", handle: "mahobainsight.in", href: "https://mahobainsight.in", icon: Newspaper },
-  { label: "Email", handle: "emailnik@mahobainsight.in", href: "mailto:emailnik@mahobainsight.in", icon: Mail },
 ];
 
 function EmailRow({ email, label }: { email: string; label: string }) {
