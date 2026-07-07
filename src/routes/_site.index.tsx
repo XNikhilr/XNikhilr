@@ -181,9 +181,10 @@ function TerminalCard({ title, children }: { title: string; children: React.Reac
 }
 
 const socials = [
-  { label: "GitHub", handle: "@nikhiljha", href: "https://github.com" },
-  { label: "Twitter / X", handle: "@nikhiljha", href: "https://twitter.com" },
-  { label: "LinkedIn", handle: "in/nikhiljha", href: "https://linkedin.com" },
-  { label: "Instagram", handle: "@nikhiljha", href: "https://instagram.com" },
-  { label: "Email", handle: "hello@nikhiljha.in", href: "mailto:hello@nikhiljha.in" },
+  { label: "GitHub", handle: "@nikhiljha", href: "https://github.com", icon: Github },
+  { label: "Twitter / X", handle: "@nikhiljha", href: "https://twitter.com", icon: Twitter },
+  { label: "LinkedIn", handle: "in/nikhiljha", href: "https://linkedin.com", icon: Linkedin },
+  { label: "Instagram", handle: "@nikhiljha", href: "https://instagram.com", icon: Instagram },
+  { label: "YouTube", handle: "@nikhiljha", href: "https://youtube.com", icon: Youtube },
+  { label: "Email", handle: "hello@nikhiljha.in", href: "mailto:hello@nikhiljha.in", icon: Mail },
 ];
