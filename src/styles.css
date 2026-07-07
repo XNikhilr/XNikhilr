@@ -88,6 +88,20 @@
   animation: blink 1s step-end infinite;
 }
 
+/* Branded social buttons: per-icon --brand drives hover border + glow. */
+.social-btn {
+  transition: border-color 200ms, box-shadow 250ms, transform 200ms, background-color 200ms;
+}
+.social-btn:hover,
+.social-btn:focus-visible {
+  border-color: var(--brand, var(--color-neon));
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--brand, var(--color-neon)) 40%, transparent),
+    0 0 18px color-mix(in oklab, var(--brand, var(--color-neon)) 55%, transparent),
+    0 0 42px color-mix(in oklab, var(--brand, var(--color-neon)) 25%, transparent);
+  outline: none;
+}
+
 @keyframes scan {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100%); }
