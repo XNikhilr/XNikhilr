@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Github, Linkedin, Twitter, Mail, Newspaper, Copy, Check, Send } from "lucide-react";
+import { Mail, Copy, Check, Send } from "lucide-react";
+import { SocialIcons } from "@/components/SocialIcons";
+import { socials } from "@/lib/socials";
 
 
 export const Route = createFileRoute("/_site/")({
@@ -143,24 +145,7 @@ function Home() {
         <h2 className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
           // socials --list
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-          {socials.map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={s.label}
-              className="group relative flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-border bg-card hover:border-neon hover:-translate-y-0.5 hover:glow-neon transition-all"
-            >
-              <s.icon className="w-6 h-6 text-muted-foreground group-hover:text-neon transition-colors" />
-              <span className="text-xs font-mono text-foreground">{s.label}</span>
-              <span className="text-[10px] text-muted-foreground truncate max-w-full">
-                {s.handle}
-              </span>
-            </a>
-          ))}
-        </div>
+        <SocialIcons items={socials} variant="grid" />
       </section>
 
       <section className="relative mx-auto max-w-6xl px-4 sm:px-6 py-16 pb-24">
