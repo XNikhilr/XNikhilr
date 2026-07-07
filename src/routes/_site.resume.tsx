@@ -66,6 +66,9 @@ function Resume() {
               <span>·</span>
               <span>urmilajanki.in</span>
             </div>
+            <div className="mt-4 print:hidden">
+              <SocialIcons items={socials} variant="compact" />
+            </div>
           </header>
 
           <Section title="## summary">
